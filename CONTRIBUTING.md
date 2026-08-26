@@ -2,6 +2,8 @@
 
 ## Flujo
 
+GitHub se utiliza como respaldo versionado y registro auditable del proyecto; la operación, los secretos y los datos reales se mantienen fuera del repositorio. Consulta la [política de repositorio y respaldo](docs/REPOSITORIO-Y-BACKUP.md).
+
 1. Selecciona un elemento de `project/BACKLOG_MVP.md` o una incidencia enlazada.
 2. Crea una rama corta y descriptiva desde la rama principal.
 3. Mantén el cambio limitado a un resultado verificable.
@@ -26,4 +28,3 @@
 - Sin secretos ni datos personales en código, logs o fixtures.
 - Migración, rollback y observabilidad documentados cuando aplique.
 - Handoff con riesgos y limitaciones conocidas.
-

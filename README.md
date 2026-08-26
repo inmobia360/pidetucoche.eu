@@ -30,6 +30,7 @@ Principios:
 4. [Resumen del modelo de negocio](docs/business/resumen-contexto-modelo-negocio.md)
 5. [Guía de marca Naranja Performance](docs/brand/guia-marca-naranja-performance.md)
 6. [Informe para potencial inversor](docs/investor/informe-potencial-inversor.md), cuyas cifras son hipótesis de planificación
+7. [Política de repositorio y respaldo](docs/REPOSITORIO-Y-BACKUP.md)
 
 Especificaciones activas de desarrollo:
 
