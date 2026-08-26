@@ -20,6 +20,9 @@ importers:
 
   apps/web:
     dependencies:
+      '@pidetucoche/domain':
+        specifier: workspace:*
+        version: link:../../packages/domain
       next:
         specifier: latest
         version: 16.3.3(@types/node@26.3.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)

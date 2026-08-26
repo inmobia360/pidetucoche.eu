@@ -12,8 +12,11 @@ function BrandMark() { return <span className="brand-mark" aria-hidden="true"><s
 
 export default function Home() {
   const [submitted, setSubmitted] = useState(false);
+  const [contactSubmitted, setContactSubmitted] = useState(false);
   const [form, setForm] = useState({ vehicle: "", budget: "", fuel: "" });
+  const [contact, setContact] = useState({ name: "", email: "", phone: "", province: "", detail: "", serviceConsent: false, marketingConsent: false });
   function submit(event: FormEvent<HTMLFormElement>) { event.preventDefault(); setSubmitted(true); }
+  function submitContact(event: FormEvent<HTMLFormElement>) { event.preventDefault(); setContactSubmitted(true); }
   return <main>
     <header className="site-header shell">
       <a className="wordmark" href="#inicio" aria-label="PideTuCoche.eu, inicio"><BrandMark /><span>PideTuCoche<span className="orange">.eu</span></span></a>
@@ -30,8 +33,14 @@ export default function Home() {
         <label>Marca o tipo de coche<select required value={form.vehicle} onChange={e => setForm({ ...form, vehicle: e.target.value })}><option value="">Elige una opción</option><option>Compacto</option><option>SUV</option><option>Familiar</option><option>Eléctrico</option><option>Ya sé la marca y modelo</option></select></label>
         <label>Presupuesto máximo<select required value={form.budget} onChange={e => setForm({ ...form, budget: e.target.value })}><option value="">Hasta cuánto quieres invertir</option><option>Hasta 15.000 €</option><option>15.000 – 25.000 €</option><option>25.000 – 35.000 €</option><option>Más de 35.000 €</option></select></label>
         <label>Combustible<select required value={form.fuel} onChange={e => setForm({ ...form, fuel: e.target.value })}><option value="">Qué prefieres</option><option>Gasolina</option><option>Diésel</option><option>Híbrido</option><option>Eléctrico</option><option>Me da igual</option></select></label>
-        <button className="button button-primary" type="submit">Pedir mi coche <span>↗</span></button>
-      </form> : <div className="form-success" role="status"><span className="success-icon">✓</span><div><strong>Tenemos un buen punto de partida.</strong><p>En el siguiente paso añadiremos tus datos de contacto y preferencias detalladas.</p></div><button className="text-button" onClick={() => setSubmitted(false)}>Editar búsqueda</button></div>}
+        <button className="button button-primary" type="submit">Continuar <span>↗</span></button>
+      </form> : !contactSubmitted ? <form className="contact-form" onSubmit={submitContact}>
+        <div className="contact-heading"><span className="card-kicker">02 — Un último paso</span><h2>¿Cómo te contactamos?</h2><p>Usaremos estos datos solo para hablar de tu búsqueda.</p></div>
+        <div className="contact-fields"><label>Nombre<input required value={contact.name} onChange={e => setContact({ ...contact, name: e.target.value })} placeholder="Tu nombre" /></label><label>Email<input required type="email" value={contact.email} onChange={e => setContact({ ...contact, email: e.target.value })} placeholder="tu@email.com" /></label><label>Teléfono<input required type="tel" value={contact.phone} onChange={e => setContact({ ...contact, phone: e.target.value })} placeholder="600 000 000" /></label><label>Provincia<select required value={contact.province} onChange={e => setContact({ ...contact, province: e.target.value })}><option value="">Elige provincia</option><option>Ourense</option><option>Pontevedra</option><option>A Coruña</option><option>Lugo</option><option>Otra provincia</option></select></label></div>
+        <label className="detail-field">Cuéntanos algo más (opcional)<textarea value={contact.detail} onChange={e => setContact({ ...contact, detail: e.target.value })} placeholder="Por ejemplo: necesito espacio para una familia de cuatro." maxLength={1000} /></label>
+        <label className="consent"><input required type="checkbox" checked={contact.serviceConsent} onChange={e => setContact({ ...contact, serviceConsent: e.target.checked })} /><span>Acepto que PideTuCoche.eu use mis datos para gestionar esta solicitud. <u>Ver privacidad</u></span></label><label className="consent"><input type="checkbox" checked={contact.marketingConsent} onChange={e => setContact({ ...contact, marketingConsent: e.target.checked })} /><span>Quiero recibir novedades y oportunidades por email. (Opcional)</span></label>
+        <div className="contact-actions"><button className="text-button" type="button" onClick={() => setSubmitted(false)}>Atrás</button><button className="button button-primary" type="submit">Preparar solicitud <span>↗</span></button></div>
+      </form> : <div className="form-success" role="status"><span className="success-icon">✓</span><div><strong>Solicitud preparada.</strong><p>El almacenamiento CRM se activará en la siguiente fase. No se ha enviado ningún dato todavía.</p></div><button className="text-button" onClick={() => setContactSubmitted(false)}>Revisar datos</button></div>}
     </div></section>
 
     <section className="process shell" id="proceso"><div className="section-intro"><p className="eyebrow"><span className="eyebrow-line" /> El proceso PideTuCoche</p><h2>Del “no lo encuentro”<br /><em>al “ya es mío”.</em></h2></div><div className="steps">{steps.map(([icon, title, text], index) => <article className={`step step-${index + 1}`} key={title}><span className="step-number">0{index + 1}</span><span className="step-icon">{icon}</span><h3>{title}</h3><p>{text}</p></article>)}</div></section>

@@ -8,6 +8,7 @@
     "test": "vitest run --passWithNoTests"
   },
   "dependencies": {
+    "@pidetucoche/domain": "workspace:*",
     "next": "latest",
     "react": "latest",
     "react-dom": "latest"
