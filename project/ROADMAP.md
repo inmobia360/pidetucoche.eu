@@ -1,5 +1,7 @@
 # Roadmap inicial
 
+La base provisional de decisiones se encuentra en [`GATE_0_DECISIONES_FUNDACIONALES.md`](GATE_0_DECISIONES_FUNDACIONALES.md).
+
 ## Gate 0 — Fundamentos
 
 **Objetivo:** cerrar las decisiones que condicionan dinero, contratos, fuentes, alcance y propiedad.
@@ -58,4 +60,3 @@
 ## Gate 5 — Escalado
 
 Abrir una nueva provincia solo tras cuatro semanas con margen positivo, reembolsos controlados, SLA cumplido, partner homologado, soporte suficiente y CAC dentro del límite aprobado.
-

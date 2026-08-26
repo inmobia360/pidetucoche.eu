@@ -4,12 +4,15 @@ Estados: `PENDIENTE`, `EN CURSO`, `BLOQUEADO`, `HECHO`.
 
 | ID | Área | Entregable | Prioridad | Dependencia | Estado |
 | --- | --- | --- | --- | --- | --- |
-| GOV-001 | Dirección | Registro de decisiones y propietarios | Must | — | PENDIENTE |
+| GOV-001 | Dirección | Registro de decisiones y propietarios | Must | — | EN CURSO |
+| MER-001 | Mercantil | Certificación RMC, marca OEPM y constitución | Must | GOV-001 | PENDIENTE |
 | LEG-001 | Legal | Dictamen de sociedad vendedora y contratación B2C | Must | GOV-001 | BLOQUEADO |
 | LEG-002 | Legal | Reserva, encargo, reembolso, desistimiento y garantía | Must | LEG-001 | BLOQUEADO |
-| FIN-001 | Finanzas | Modelo económico por operación y puja máxima | Must | GOV-001 | PENDIENTE |
+| FIS-001 | Fiscal | Matriz IVA general, intracomunitario y REBU | Must | MER-001 | BLOQUEADO |
+| FIN-001 | Finanzas | Modelo económico por operación y puja máxima | Must | GOV-001 | EN CURSO |
 | FIN-002 | Finanzas | Umbrales de margen, caja y doble aprobación | Must | FIN-001 | BLOQUEADO |
-| OPS-001 | Operaciones | SOP Ourense: recepción a entrega | Must | GOV-001 | PENDIENTE |
+| AUTO1-001 | Proveedor | Alta profesional, contrato, API, derechos y tarifas | Must | MER-001 | BLOQUEADO |
+| OPS-001 | Operaciones | SOP Ourense: recepción a entrega | Must | GOV-001 | EN CURSO |
 | OPS-002 | Operaciones | Homologación de partner piloto y transportista | Must | OPS-001 | BLOQUEADO |
 | PRD-001 | Producto | PRD, recorridos y criterios de aceptación | Must | LEG-002, FIN-002 | BLOQUEADO |
 | ARC-001 | Arquitectura | ADR del monolito modular y stack | Must | PRD-001 | BLOQUEADO |
@@ -28,4 +31,3 @@ Estados: `PENDIENTE`, `EN CURSO`, `BLOQUEADO`, `HECHO`.
 | SUP-001 | Soporte | SLA, canales, reclamaciones y posventa | Must | OPS-001, LEG-002 | BLOQUEADO |
 
 El backlog debe migrarse a incidencias cuando se aprueben responsables y alcance. No marcar una tarea como `HECHO` sin evidencia y pruebas.
-

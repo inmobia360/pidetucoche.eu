@@ -26,9 +26,10 @@ Principios:
 
 1. [Guía de implementación desde cero](docs/implementation/guia-implementacion-desde-cero.md)
 2. [Pliego de implantación digital](docs/implementation/pliego-implantacion-digital.md)
-3. [Resumen del modelo de negocio](docs/business/resumen-contexto-modelo-negocio.md)
-4. [Guía de marca Naranja Performance](docs/brand/guia-marca-naranja-performance.md)
-5. [Informe para potencial inversor](docs/investor/informe-potencial-inversor.md), cuyas cifras son hipótesis de planificación
+3. [Decisiones fundacionales de Gate 0](project/GATE_0_DECISIONES_FUNDACIONALES.md)
+4. [Resumen del modelo de negocio](docs/business/resumen-contexto-modelo-negocio.md)
+5. [Guía de marca Naranja Performance](docs/brand/guia-marca-naranja-performance.md)
+6. [Informe para potencial inversor](docs/investor/informe-potencial-inversor.md), cuyas cifras son hipótesis de planificación
 
 Las instrucciones recientes del propietario y el estado real del código, datos y contratos prevalecen sobre los documentos históricos. Las discrepancias críticas deben registrarse; nunca se resuelven silenciosamente.
 
@@ -73,4 +74,3 @@ Las normas completas están en [CONTRIBUTING.md](CONTRIBUTING.md) y las instrucc
 ## Aviso
 
 Este repositorio contiene especificaciones de trabajo. No sustituye asesoramiento jurídico, fiscal, financiero, de consumo o protección de datos. No deben añadirse secretos, credenciales, datos reales de clientes ni información privada de fuentes profesionales.
-
