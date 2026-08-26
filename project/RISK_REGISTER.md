@@ -11,5 +11,4 @@
 | R-007 | Exposición de datos personales | Crítico | Baja/Media | Minimización, RBAC, cifrado, logs seguros y pruebas | Seguridad/Legal | Abierto |
 | R-008 | Doble reserva o pago duplicado | Crítico | Baja/Media | Concurrencia, webhooks firmados e idempotencia | Backend/QA | Abierto |
 | R-009 | Escalar marketing sin margen real | Alto | Media | Límites de CAC y gate de escala | Dirección/Marketing | Abierto |
-| R-010 | Confusión entre CompraTuCoche y PideTuCoche | Medio/Alto | Alta | Decisión de naming antes de publicar producto | Propietario/Marca/Legal | Abierto |
-
+| R-010 | Confusión entre CompraTuCoche y PideTuCoche | Medio/Alto | Alta | Marca y repositorio unificados como PideTuCoche.eu el 26-08-2026 | Propietario/Marca/Legal | Cerrado |
