@@ -9,6 +9,7 @@
     "build": "pnpm --filter @pidetucoche/domain build && pnpm --filter @pidetucoche/db build && pnpm --filter @pidetucoche/web build",
     "check": "pnpm install --frozen-lockfile && pnpm --filter @pidetucoche/domain build && pnpm --filter @pidetucoche/db build && pnpm -r check",
     "test": "pnpm -r test",
+    "start": "pnpm --filter @pidetucoche/web start",
     "db:migrate": "pnpm --filter @pidetucoche/db migrate"
   },
   "devDependencies": {
