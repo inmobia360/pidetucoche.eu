@@ -20,6 +20,7 @@ Thumbs.db
 
 # Logs y temporales
 *.log
+*.tsbuildinfo
 tmp/
 temp/
 
@@ -29,4 +30,3 @@ uploads/
 backups/
 *.sqlite
 *.db
-

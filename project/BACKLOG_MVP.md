@@ -18,8 +18,8 @@ Estados: `PENDIENTE`, `EN CURSO`, `BLOQUEADO`, `HECHO`.
 | ARC-001 | Arquitectura | ADR del monolito modular y stack | Must | PRD-001 | EN CURSO |
 | DAT-001 | Datos | Modelo de dominio, estados, permisos y auditoría | Must | PRD-001, ARC-001 | EN CURSO |
 | DEV-001 | Desarrollo | Núcleo de dinero, pricing, estados y pruebas unitarias | Must | FIN-001, DAT-001 | HECHO |
-| UX-001 | Diseño | Sistema visual y prototipo responsive accesible | Must | PRD-001 | BLOQUEADO |
-| WEB-001 | Desarrollo | Landing y configurador de solicitud | Must | UX-001, DAT-001 | BLOQUEADO |
+| UX-001 | Diseño | Sistema visual y prototipo responsive accesible | Must | PRD-001 | EN CURSO |
+| WEB-001 | Desarrollo | Landing y configurador de solicitud | Must | UX-001, DAT-001 | EN CURSO |
 | CRM-001 | Desarrollo | CRM y cualificación de leads | Must | DAT-001 | BLOQUEADO |
 | CAT-001 | Desarrollo | Oportunidades manuales/CSV con derechos y caducidad | Must | DAT-001 | BLOQUEADO |
 | RES-001 | Desarrollo | Reserva, contrato versionado, pago y reembolso | Must | LEG-002, DAT-001 | BLOQUEADO |
