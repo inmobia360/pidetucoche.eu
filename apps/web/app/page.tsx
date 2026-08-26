@@ -13,10 +13,28 @@ function BrandMark() { return <span className="brand-mark" aria-hidden="true"><s
 export default function Home() {
   const [submitted, setSubmitted] = useState(false);
   const [contactSubmitted, setContactSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
+  const [leadReference, setLeadReference] = useState("");
   const [form, setForm] = useState({ vehicle: "", budget: "", fuel: "" });
   const [contact, setContact] = useState({ name: "", email: "", phone: "", province: "", detail: "", serviceConsent: false, marketingConsent: false });
   function submit(event: FormEvent<HTMLFormElement>) { event.preventDefault(); setSubmitted(true); }
-  function submitContact(event: FormEvent<HTMLFormElement>) { event.preventDefault(); setContactSubmitted(true); }
+  async function submitContact(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setIsSubmitting(true);
+    setSubmitError("");
+    const response = await fetch("/api/leads", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...form, ...contact }) });
+    if (response.ok) {
+      const result = await response.json() as { id?: string };
+      setLeadReference(result.id ?? "");
+      setContactSubmitted(true);
+    } else if (response.status === 503) {
+      setSubmitError("La solicitud es válida, pero el almacenamiento todavía no está conectado. No se ha guardado ningún dato.");
+    } else {
+      setSubmitError("Revisa los datos e inténtalo de nuevo.");
+    }
+    setIsSubmitting(false);
+  }
   return <main>
     <header className="site-header shell">
       <a className="wordmark" href="#inicio" aria-label="PideTuCoche.eu, inicio"><BrandMark /><span>PideTuCoche<span className="orange">.eu</span></span></a>
@@ -39,8 +57,9 @@ export default function Home() {
         <div className="contact-fields"><label>Nombre<input required value={contact.name} onChange={e => setContact({ ...contact, name: e.target.value })} placeholder="Tu nombre" /></label><label>Email<input required type="email" value={contact.email} onChange={e => setContact({ ...contact, email: e.target.value })} placeholder="tu@email.com" /></label><label>Teléfono<input required type="tel" value={contact.phone} onChange={e => setContact({ ...contact, phone: e.target.value })} placeholder="600 000 000" /></label><label>Provincia<select required value={contact.province} onChange={e => setContact({ ...contact, province: e.target.value })}><option value="">Elige provincia</option><option>Ourense</option><option>Pontevedra</option><option>A Coruña</option><option>Lugo</option><option>Otra provincia</option></select></label></div>
         <label className="detail-field">Cuéntanos algo más (opcional)<textarea value={contact.detail} onChange={e => setContact({ ...contact, detail: e.target.value })} placeholder="Por ejemplo: necesito espacio para una familia de cuatro." maxLength={1000} /></label>
         <label className="consent"><input required type="checkbox" checked={contact.serviceConsent} onChange={e => setContact({ ...contact, serviceConsent: e.target.checked })} /><span>Acepto que PideTuCoche.eu use mis datos para gestionar esta solicitud. <u>Ver privacidad</u></span></label><label className="consent"><input type="checkbox" checked={contact.marketingConsent} onChange={e => setContact({ ...contact, marketingConsent: e.target.checked })} /><span>Quiero recibir novedades y oportunidades por email. (Opcional)</span></label>
-        <div className="contact-actions"><button className="text-button" type="button" onClick={() => setSubmitted(false)}>Atrás</button><button className="button button-primary" type="submit">Preparar solicitud <span>↗</span></button></div>
-      </form> : <div className="form-success" role="status"><span className="success-icon">✓</span><div><strong>Solicitud preparada.</strong><p>El almacenamiento CRM se activará en la siguiente fase. No se ha enviado ningún dato todavía.</p></div><button className="text-button" onClick={() => setContactSubmitted(false)}>Revisar datos</button></div>}
+        <div className="contact-actions"><button className="text-button" type="button" onClick={() => setSubmitted(false)}>Atrás</button><button className="button button-primary" type="submit" disabled={isSubmitting}>{isSubmitting ? "Enviando…" : "Enviar solicitud"} <span>↗</span></button></div>
+        {submitError && <p className="form-error" role="alert">{submitError}</p>}
+      </form> : <div className="form-success" role="status"><span className="success-icon">✓</span><div><strong>Solicitud recibida.</strong><p>La referencia {leadReference ? `${leadReference.slice(0, 8)}…` : "está preparada"} queda lista para que nuestro equipo la revise.</p></div><button className="text-button" onClick={() => setContactSubmitted(false)}>Revisar datos</button></div>}
     </div></section>
 
     <section className="process shell" id="proceso"><div className="section-intro"><p className="eyebrow"><span className="eyebrow-line" /> El proceso PideTuCoche</p><h2>Del “no lo encuentro”<br /><em>al “ya es mío”.</em></h2></div><div className="steps">{steps.map(([icon, title, text], index) => <article className={`step step-${index + 1}`} key={title}><span className="step-number">0{index + 1}</span><span className="step-icon">{icon}</span><h3>{title}</h3><p>{text}</p></article>)}</div></section>

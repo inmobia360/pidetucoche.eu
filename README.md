@@ -52,6 +52,7 @@ skills/                  Director multiagente PideTuCoche Creator
 .github/                 Plantillas y verificación continua
 packages/domain/         Reglas puras de dinero, pricing y estados
 apps/web/                Landing y configurador inicial del MVP
+apps/web/app/backoffice/ Centro de operaciones sin datos hasta protegerlo
 ```
 
 La aplicación sigue inicialmente un enfoque de **monolito modular**. El paquete de dominio mantiene las reglas críticas separadas de interfaces, bases de datos y proveedores; `apps/web` contiene ya el primer prototipo navegable de captación.

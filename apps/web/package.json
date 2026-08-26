@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@pidetucoche/domain": "workspace:*",
+    "@pidetucoche/db": "workspace:*",
     "next": "latest",
     "react": "latest",
     "react-dom": "latest"

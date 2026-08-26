@@ -6,8 +6,8 @@
     "node": ">=24.0.0"
   },
   "scripts": {
-    "build": "pnpm --filter @pidetucoche/domain build && pnpm --filter @pidetucoche/web build",
-    "check": "pnpm --filter @pidetucoche/domain build && pnpm -r check",
+    "build": "pnpm --filter @pidetucoche/domain build && pnpm --filter @pidetucoche/db build && pnpm --filter @pidetucoche/web build",
+    "check": "pnpm install --frozen-lockfile && pnpm --filter @pidetucoche/domain build && pnpm --filter @pidetucoche/db build && pnpm -r check",
     "test": "pnpm -r test"
   },
   "devDependencies": {
