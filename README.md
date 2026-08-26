@@ -7,7 +7,7 @@ Plataforma B2C española de vehículos de ocasión bajo pedido.
 
 ## Estado
 
-Repositorio inicial de producto, negocio y desarrollo. El proyecto se encuentra en **Gate 0 — decisiones fundacionales**. La documentación incluida define el alcance del MVP; todavía no representa una aplicación desplegada ni una operativa comercial activa.
+Repositorio de producto, negocio y desarrollo. Las decisiones provisionales de **Gate 0** ya permiten iniciar el núcleo técnico, aunque requieren validación jurídica, fiscal y contractual antes de operar comercialmente. Todavía no existe una aplicación desplegada ni una operativa comercial activa.
 
 ## Modelo
 
@@ -31,6 +31,14 @@ Principios:
 5. [Guía de marca Naranja Performance](docs/brand/guia-marca-naranja-performance.md)
 6. [Informe para potencial inversor](docs/investor/informe-potencial-inversor.md), cuyas cifras son hipótesis de planificación
 
+Especificaciones activas de desarrollo:
+
+- [PRD del MVP](docs/product/PRD-MVP.md)
+- [Recorridos de usuario](docs/product/RECORRIDOS-DE-USUARIO.md)
+- [Máquina de estados](docs/product/MAQUINA-DE-ESTADOS.md)
+- [Modelo de dominio](docs/architecture/MODELO-DE-DOMINIO.md)
+- [Stack técnico propuesto](docs/architecture/ADR-002-stack-tecnico.md)
+
 Las instrucciones recientes del propietario y el estado real del código, datos y contratos prevalecen sobre los documentos históricos. Las discrepancias críticas deben registrarse; nunca se resuelven silenciosamente.
 
 ## Organización del repositorio
@@ -40,26 +48,30 @@ assets/                  Activos conceptuales de marca
 docs/                    Negocio, implantación, marca e inversión
 project/                 Roadmap, backlog, decisiones y riesgos
 skills/                  Director multiagente PideTuCoche Creator
-.github/                 Plantillas de colaboración
+.github/                 Plantillas y verificación continua
+packages/domain/         Reglas puras de dinero, pricing y estados
 ```
 
-La futura aplicación seguirá inicialmente un enfoque de **monolito modular**. La estructura de código se incorporará cuando se aprueben las decisiones técnicas del [ADR-001](docs/architecture/ADR-001-arquitectura-mvp.md).
+La aplicación sigue inicialmente un enfoque de **monolito modular**. El primer paquete mantiene las reglas críticas separadas de interfaces, bases de datos y proveedores.
 
 ## Próximo hito
 
-Cerrar las decisiones de Gate 0:
-
-- sociedad vendedora y revisión legal;
-- modalidad de reserva, reembolso y garantía;
-- derechos de fuentes y catálogo;
-- margen mínimo, puja máxima y cobertura de caja;
-- partner piloto y transportista;
-- alcance Must y presupuesto por hitos;
-- stack, proveedores y propiedad de cuentas.
+Convertir el PRD en un recorrido demostrable: landing, configurador de solicitud y backoffice mínimo, mientras se validan legalmente la contratación B2C, la garantía, la fiscalidad y los derechos de uso de AUTO1.
 
 Consulta el [roadmap](project/ROADMAP.md) y el [backlog inicial](project/BACKLOG_MVP.md).
 
 ## Desarrollo
+
+Requisitos locales: Node.js 24 y pnpm 11.
+
+```bash
+pnpm install
+pnpm check
+pnpm test
+pnpm build
+```
+
+La integración continua ejecuta los mismos controles en cada cambio propuesto y al actualizar `main`.
 
 Antes de implementar una funcionalidad:
 

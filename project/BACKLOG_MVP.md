@@ -14,9 +14,10 @@ Estados: `PENDIENTE`, `EN CURSO`, `BLOQUEADO`, `HECHO`.
 | AUTO1-001 | Proveedor | Alta profesional, contrato, API, derechos y tarifas | Must | MER-001 | BLOQUEADO |
 | OPS-001 | Operaciones | SOP Ourense: recepción a entrega | Must | GOV-001 | EN CURSO |
 | OPS-002 | Operaciones | Homologación de partner piloto y transportista | Must | OPS-001 | BLOQUEADO |
-| PRD-001 | Producto | PRD, recorridos y criterios de aceptación | Must | LEG-002, FIN-002 | BLOQUEADO |
-| ARC-001 | Arquitectura | ADR del monolito modular y stack | Must | PRD-001 | BLOQUEADO |
-| DAT-001 | Datos | Modelo de dominio, estados, permisos y auditoría | Must | PRD-001, ARC-001 | BLOQUEADO |
+| PRD-001 | Producto | PRD, recorridos y criterios de aceptación | Must | LEG-002, FIN-002 | HECHO |
+| ARC-001 | Arquitectura | ADR del monolito modular y stack | Must | PRD-001 | EN CURSO |
+| DAT-001 | Datos | Modelo de dominio, estados, permisos y auditoría | Must | PRD-001, ARC-001 | EN CURSO |
+| DEV-001 | Desarrollo | Núcleo de dinero, pricing, estados y pruebas unitarias | Must | FIN-001, DAT-001 | HECHO |
 | UX-001 | Diseño | Sistema visual y prototipo responsive accesible | Must | PRD-001 | BLOQUEADO |
 | WEB-001 | Desarrollo | Landing y configurador de solicitud | Must | UX-001, DAT-001 | BLOQUEADO |
 | CRM-001 | Desarrollo | CRM y cualificación de leads | Must | DAT-001 | BLOQUEADO |
@@ -30,4 +31,4 @@ Estados: `PENDIENTE`, `EN CURSO`, `BLOQUEADO`, `HECHO`.
 | MKT-001 | Marketing | Plan piloto, mensajes y límite de CAC | Should | FIN-002, LEG-002 | BLOQUEADO |
 | SUP-001 | Soporte | SLA, canales, reclamaciones y posventa | Must | OPS-001, LEG-002 | BLOQUEADO |
 
-El backlog debe migrarse a incidencias cuando se aprueben responsables y alcance. No marcar una tarea como `HECHO` sin evidencia y pruebas.
+El backlog debe migrarse a incidencias cuando se aprueben responsables y alcance. `PRD-001` queda respaldado por `docs/product/`; `DEV-001`, por `packages/domain/` y la ejecución de CI. No marcar una tarea como `HECHO` sin evidencia y pruebas.

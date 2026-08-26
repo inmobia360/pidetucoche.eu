@@ -1,0 +1,18 @@
+{
+  "name": "pidetucoche",
+  "private": true,
+  "packageManager": "pnpm@11.24.0",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "build": "pnpm -r build",
+    "check": "pnpm -r check",
+    "test": "pnpm -r test"
+  },
+  "devDependencies": {
+    "@types/node": "^26.3.0",
+    "typescript": "^7.0.2",
+    "vitest": "^4.1.11"
+  }
+}

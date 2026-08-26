@@ -1,6 +1,6 @@
 # ADR-001 — Arquitectura inicial del MVP
 
-**Estado:** Propuesta  
+**Estado:** Aceptada provisionalmente para el MVP
 **Fecha:** 26 de agosto de 2026
 
 ## Contexto
@@ -32,13 +32,6 @@ Usar una base de datos relacional gestionada y una cola/outbox para efectos exte
 - Los límites modulares deben revisarse para evitar acoplamiento accidental.
 - Un módulo solo se separará cuando exista una necesidad demostrada de escala, seguridad o ciclo de despliegue.
 
-## Pendiente antes de aprobar
+## Implementación técnica
 
-- Stack y versiones.
-- Hosting y región de datos.
-- Proveedor de identidad.
-- Pagos y firma/documentos.
-- Almacenamiento y antivirus de archivos.
-- Observabilidad y backups.
-- Coste mensual y plan de salida.
-
+El stack, proveedores y prueba de arquitectura se detallan en [ADR-002](ADR-002-stack-tecnico.md). La aceptación definitiva depende del spike técnico y del coste contractual.
