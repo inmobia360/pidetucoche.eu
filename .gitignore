@@ -1,0 +1,32 @@
+# Dependencias y builds
+node_modules/
+.next/
+dist/
+build/
+coverage/
+
+# Entornos y secretos
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Editores y sistema
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Logs y temporales
+*.log
+tmp/
+temp/
+
+# Datos locales o exportaciones
+exports/
+uploads/
+backups/
+*.sqlite
+*.db
+

@@ -1,0 +1,8 @@
+interface:
+  display_name: "PideTuCoche Creator"
+  short_description: "CEO y equipo para crear PideTuCoche.eu"
+  brand_color: "#FF5A1F"
+  default_prompt: "Usa $pidetucoche-creator para dirigir el siguiente hito de PideTuCoche.eu con especialistas, criterios de aceptación y control de riesgos."
+policy:
+  allow_implicit_invocation: true
+
